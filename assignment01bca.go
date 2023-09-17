@@ -24,7 +24,7 @@ func CalculateHash(b *Block) string {
 	return fmt.Sprintf("%x", sha256.Sum256([]byte(stringToHash)))
 }
 
-func (bc *Blockchain) newBlock(transaction string, nonce int, previousHash string) *Block {
+func (bc *Blockchain) NewBlock(transaction string, nonce int, previousHash string) *Block {
 	block := new(Block)
 	block.transaction = transaction
 	block.nonce = nonce
@@ -34,7 +34,7 @@ func (bc *Blockchain) newBlock(transaction string, nonce int, previousHash strin
 	return block
 }
 
-func printBlock(b *Block) {
+func PrintBlock(b *Block) {
 	fmt.Printf("%s Block %s\n", strings.Repeat("=", 25), strings.Repeat("=", 25))
 	fmt.Printf("Transaction: %s\n", b.transaction)
 	fmt.Printf("Nonce: %d\n", b.nonce)
@@ -46,7 +46,7 @@ func ListBlocks(bc *Blockchain) {
 	println()
 	for i := 0; i < len(bc.list); i++ {
 		b := bc.list[i]
-		printBlock(b)
+		PrintBlock(b)
 	}
 }
 
@@ -78,13 +78,13 @@ func main() {
 
 	//Make Blockchain
 	blockchain := new(Blockchain)
-	b1 := blockchain.newBlock("Transaction 1", 1, "")
-	b2 := blockchain.newBlock("Transaction 2", 2, CalculateHash(b1))
-	b3 := blockchain.newBlock("Transaction 3", 3, CalculateHash(b2))
-	b4 := blockchain.newBlock("Transaction 4", 4, CalculateHash(b3))
-	b5 := blockchain.newBlock("Transaction 5", 5, CalculateHash(b4))
-	b6 := blockchain.newBlock("Transaction 6", 6, CalculateHash(b5))
-	b7 := blockchain.newBlock("", 7, CalculateHash(b6))
+	b1 := blockchain.NewBlock("Transaction 1", 1, "")
+	b2 := blockchain.NewBlock("Transaction 2", 2, CalculateHash(b1))
+	b3 := blockchain.NewBlock("Transaction 3", 3, CalculateHash(b2))
+	b4 := blockchain.NewBlock("Transaction 4", 4, CalculateHash(b3))
+	b5 := blockchain.NewBlock("Transaction 5", 5, CalculateHash(b4))
+	b6 := blockchain.NewBlock("Transaction 6", 6, CalculateHash(b5))
+	b7 := blockchain.NewBlock("", 7, CalculateHash(b6))
 	LastHash := b7.prevHash //Store Last Hash Only
 
 	//Print Chain
