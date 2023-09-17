@@ -15,7 +15,7 @@ func main() {
 	b5 := blockchain.NewBlock("Transaction 5", 5, assignment01bca.CalculateHash(b4))
 	b6 := blockchain.NewBlock("Transaction 6", 6, assignment01bca.CalculateHash(b5))
 	b7 := blockchain.NewBlock("", 7, assignment01bca.CalculateHash(b6))
-	LastHash := b7.PrevHash // Store the last hash only
+	LastHash := assignment01bca.GetPrevValue(b7) // Store the last hash only
 
 	// Print the chain
 	assignment01bca.ListBlocks(blockchain)
