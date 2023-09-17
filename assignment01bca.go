@@ -24,6 +24,10 @@ func NewBlockchain() *Blockchain {
 	}
 }
 
+func GetPrevValue(b *Block) string {
+	return b.prevHash
+}
+
 func CalculateHash(b *Block) string {
 	stringToHash := strconv.Itoa(b.nonce) + b.transaction + b.prevHash
 	//fmt.Printf("String Received: %s\n", stringToHash)
