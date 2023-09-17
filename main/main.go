@@ -1,6 +1,8 @@
 package main
 
-// Import the package correctly
+import (
+	"github.com/ameerahaider/assignment01bca"
+)
 
 func main() {
 	// Create a new instance of the Blockchain from the package
