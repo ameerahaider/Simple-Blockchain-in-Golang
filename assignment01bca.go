@@ -18,6 +18,12 @@ type Blockchain struct {
 	list []*Block
 }
 
+func NewBlockchain() *Blockchain {
+	return &Blockchain{
+		list: []*Block{},
+	}
+}
+
 func CalculateHash(b *Block) string {
 	stringToHash := strconv.Itoa(b.nonce) + b.transaction + b.prevHash
 	//fmt.Printf("String Received: %s\n", stringToHash)

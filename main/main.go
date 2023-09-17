@@ -8,7 +8,6 @@ func main() {
 	// Create a new instance of the Blockchain from the package
 	blockchain := assignment01bca.NewBlockchain()
 
-	// Create blocks and add them to the blockchain
 	b1 := blockchain.NewBlock("Transaction 1", 1, "")
 	b2 := blockchain.NewBlock("Transaction 2", 2, assignment01bca.CalculateHash(b1))
 	b3 := blockchain.NewBlock("Transaction 3", 3, assignment01bca.CalculateHash(b2))
