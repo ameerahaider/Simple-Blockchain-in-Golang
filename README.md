@@ -35,7 +35,7 @@ A function for calculating the hash of a block.
     ```
 2. Navigate to the project directory:
     ```sh
-    cd assignment01bca
+    cd Simple-Blockchain-in-Golang
     ```
 3. Ensure your Go environment is set up:
     ```sh
